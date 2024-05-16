@@ -15,6 +15,10 @@ class Server:
     BIND_ADDRESS = env.get("BIND_ADDRESS", "0.0.0.0")
     PORT = int(env.get("PORT", 8080))
 
+if not all([Telegram.API_ID, Telegram.API_HASH, Telegram.BOT_TOKEN, Telegram.OWNER_ID, Telegram.BOT_USERNAME, Telegram.CHANNEL_ID]):
+    raise ValueError("Please set all mandatory environment variables.")
+
+
 # LOGGING CONFIGURATION
 LOGGER_CONFIG_JSON = {
     'version': 1,
